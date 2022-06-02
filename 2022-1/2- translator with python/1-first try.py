@@ -24,6 +24,9 @@ user_text = tk.Entry(
 )
 user_text.grid(row=1, column=0, columnspan=3)
 
+
+
+
 button_to_translate = tk.Button(
     master=window_translator,
     text='Enter to translate',
@@ -32,7 +35,16 @@ button_to_translate = tk.Button(
     height=2,
     font=('Arial', '15'),
 )
-button_to_translate.grid(row=2, column=0, columnspan=3)
+button_to_translate.grid(row=2, column=0, columnspan=3, pady=20)
+
+translated_text = tk.Label(
+    master=window_translator,
+    text='Result is here',
+    width=30,
+    height=2,
+    font=('Arial', '15'),
+)
+translated_text.grid(row=3, column=0, columnspan=3)
 
 window_translator.mainloop()
 
