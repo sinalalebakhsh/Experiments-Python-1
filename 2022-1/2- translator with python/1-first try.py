@@ -11,18 +11,19 @@ user_text_value = tk.StringVar()
 translated_text = tk.Label(
     master=window_translator,
     text='Result is here',
-    width=30,
-    height=2,
+    width=50,
+    height=3,
     font=('Arial', '15'),
 )
 translated_text.grid(row=3, column=0, columnspan=3)
 
 
-def translator():
+def translator(*agrs):
     before_translate = user_text_value.get()
     output = GoogleTranslator(source='fa', target='en').translate(before_translate)
     translated_text['text'] = output
     
+window_translator.bind('<Return>', translator)
 
 
 help_text = tk.Label(
