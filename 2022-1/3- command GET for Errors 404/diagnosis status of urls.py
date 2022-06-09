@@ -1,20 +1,34 @@
-# import requests
+import requests
 
-
-from ntpath import join
-from posixpath import split
 
 
 with open('urls.txt', 'a') as domain_site:
     while True:
         get_input = input('add your domain: ')
-        if get_input == 'exit':
+        if get_input == 'e':
             break
-        domain_site.write('\n'+get_input)
-    
+        elif get_input[:8] == 'https://':
+            domain_site.write('\n'+get_input)
+        
+with open('urls.txt', 'r') as url_in_one_line:
+    while True:
+        one_url = url_in_one_line.readline().split()
+        # print(one_url)
+        try:
+            if one_url[0] != '':
+                link_line = requests.get(one_url[0])
+                print(f'{one_url[0]} = {link_line.status_code}')
+        except IndexError:
+            break
 
-    
 
+
+
+#   https://www.google.com  
+# https://www.salamatiyeshoma.com
+# https://www.facebook.com
+# https://www.yahoo.com
+# https://www.moz.com
 
 
 
